@@ -2,19 +2,6 @@
 
 Uma introdução prática ao Docker, guiando você na criação e execução do seu primeiro contêiner.
 
-## Pré-requisitos
-
-Antes de começar, certifique-se de que você tem o Docker instalado e em execução na sua máquina.
-
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (Windows, macOS, e Linux)
-- Ou Docker Engine para servidores Linux.
-
-Você pode verificar se o Docker está instalado corretamente executando:
-
-```bash
-docker --version
-```
-
 ## Aula 01: Seu Primeiro Contêiner
 
 Nesta aula, vamos construir uma imagem Docker que executa um script simples para imprimir "Hello, World!" e, em seguida, executar um contêiner a partir dessa imagem.
@@ -44,15 +31,15 @@ Agora, com o `Dockerfile` no seu diretório, vamos construir a imagem. Abra seu 
 docker build -t hello-world .
 ```
 
-A flag **-t** (de tag) é usada para dar um nome à sua imagem, o que facilita na hora de executá-la.
-O **.** no final do comando informa ao Docker para usar o diretório atual como o contexto de construção.
+- A flag **-t** (de tag) é usada para dar um nome à sua imagem, o que facilita na hora de executá-la.
+- O **.** no final do comando informa ao Docker para usar o diretório atual como o contexto de construção.
 
 ### 3. Executar o Contêiner
 
 Use o comando docker run para executar o contêiner a partir da imagem definida e construída nos passos anteriores:
 
 ```bash
-    docker run hello-world
+docker run hello-world
 ```
 
 Ao executar este comando, o Docker iniciará um contêiner a partir da sua imagem hello-world.
