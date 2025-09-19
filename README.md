@@ -24,20 +24,20 @@ O conteúdo está organizado dentro da pasta `docs`, que é dividida nas seguint
 
 ## 🗺️ Roadmap de Estudos
 
-Para um guia cronológico e ordenado dos tópicos de estudo, consulte o nosso **Roadmap de Estudos DevOps**.
+Para um guia cronológico e ordenado dos tópicos de estudo, consulte o nosso **[Roadmap de Estudos DevOps](ROADMAP.md)**.
 
 ## 📖 Conteúdo Atual
 
 ### Guias Práticos (`guides`)
 
-- Guia de Comandos Essenciais do Docker CLI
+- [Guia de Comandos Essenciais do Docker CLI](./docs/guides/docker/docker-cli-commands.md)
 
 ### Conceitos (`conceitos`)
 
-*(Nenhum documento adicionado ainda.)*
+- [Contêineres vs. Máquinas Virtuais (VMs)](./docs/conceitos/01-containers-vs-vms.md)
 
 ## 🚀 Meus Outros Projetos
 
 Conheça outros projetos que desenvolvi e mantenho:
 
-- **[github.com/heviane/alura-imersao-devops](https://github.com/heviane/alura-imersao-devops)**: Alura imersão DevOps com Google Cloud.
+- **[github.com/heviane/alura-imersao-devops](https://github.com/heviane/alura-imersao-devops)**: Repositório da imersão Alura DevOps com Google Cloud.
