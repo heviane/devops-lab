@@ -2,50 +2,54 @@
 
 Este guia apresenta uma lista dos comandos mais comuns do Docker, organizados por categoria para facilitar a consulta e o aprendizado.
 
+## Comandos Úteis
+
+- **`docker --help`**: Exibe uma lista dos comandos Docker.
+
 ## Gerenciamento de Imagens
 
 Comandos para construir, baixar, listar e remover imagens Docker.
 
 - **`docker build`**: Constrói uma imagem a partir de um Dockerfile.
 
-  ```bash
-  # Constrói uma imagem a partir do Dockerfile no diretório atual e a nomeia (tag) como 'minha-imagem'
-  docker build -t minha-imagem .
-  ```
+```bash
+# Constrói uma imagem a partir do Dockerfile no diretório atual e a nomeia (tag) como 'minha-imagem'
+docker build -t minha-imagem .
+```
 
 - **`docker images`**: Lista todas as imagens Docker locais.
 
-  ```bash
-  docker images
-  ```
+```bash
+docker images
+```
 
 - **`docker pull`**: Baixa uma imagem ou um repositório de um registro (como o Docker Hub).
 
-  ```bash
-  # Baixa a versão mais recente (latest) da imagem do Ubuntu
-  docker pull ubuntu:latest
-  ```
+```bash
+# Baixa a versão mais recente (latest) da imagem do Ubuntu
+docker pull ubuntu:latest
+```
 
 - **`docker push`**: Envia uma imagem ou um repositório para um registro.
 
-  ```bash
-  # Envia a imagem 'meu-usuario/minha-imagem' para o Docker Hub
-  docker push meu-usuario/minha-imagem
-  ```
+```bash
+# Envia a imagem 'meu-usuario/minha-imagem' para o Docker Hub
+docker push meu-usuario/minha-imagem
+```
 
 - **`docker rmi`**: Remove uma ou mais imagens locais.
 
-  ```bash
-  # Remove a imagem com o ID especificado
-  docker rmi <ID_DA_IMAGEM>
-  ```
+```bash
+# Remove a imagem com o ID especificado
+docker rmi <ID_DA_IMAGEM>
+```
 
 - **`docker tag`**: Cria uma tag que referencia uma imagem existente. Útil para nomear versões ou preparar para o push.
 
-  ```bash
-  # Adiciona a tag 'meu-usuario/minha-imagem:v1' à imagem 'minha-imagem:latest'
-  docker tag minha-imagem:latest meu-usuario/minha-imagem:v1
-  ```
+```bash
+# Adiciona a tag 'meu-usuario/minha-imagem:v1' à imagem 'minha-imagem:latest'
+docker tag minha-imagem:latest meu-usuario/minha-imagem:v1
+```
 
 ## Gerenciamento de Contêineres
 
@@ -53,61 +57,40 @@ Comandos para criar, executar, parar, listar e interagir com contêineres.
 
 - **`docker run`**: Cria e inicia um novo contêiner a partir de uma imagem.
 
-  ```bash
-  # Executa um contêiner em segundo plano (-d), mapeia a porta 8080 do host para a 80 do contêiner (-p) e o nomeia como 'meu-app'
-  docker run -d -p 8080:80 --name meu-app nginx
-  ```
+```bash
+# Executa um contêiner em segundo plano (-d), mapeia a porta 8080 do host para a 80 do contêiner (-p) e o nomeia como 'meu-app'
+docker run -d -p 8080:80 --name meu-app nginx
+```
 
-- **`docker ps`**: Lista os contêineres em execução.
+- **`docker ps`**: Lista os contêineres em execução. Formato novo **`docker container ls`**.
+- **`docker ps -a`**: Lista todos os contêineres. Formato novo **`docker container ls -a`**.
 
-  ```bash
-  # Lista todos os contêineres (em execução e parados)
-  docker ps -a
-  ```
+Pode parar pelo ID ou pelo nome:
 
 - **`docker stop`**: Para um ou mais contêineres em execução.
+- **`docker stop <ID_DO_CONTÊINER>`**: Para o contêiner com o ID especificado (Pode usar somente os 3 primeiros caracteres do ID)
+- **`docker stop <NAME_DO_CONTÊINER>`**: Para o contêiner com o nome especificado
 
-  ```bash
-  # Para o contêiner chamado 'meu-app'
-  docker stop meu-app
-  ```
+Pode iniciar pelo ID ou pelo nome:
 
 - **`docker start`**: Inicia um ou mais contêineres parados.
-
-  ```bash
-  # Inicia o contêiner chamado 'meu-app'
-  docker start meu-app
-  ```
-
 - **`docker restart`**: Reinicia um contêiner.
 
-  ```bash
-  docker restart meu-app
-  ```
+Pode remover/excluir pelo ID ou pelo nome. O container não deve estar em execução:
 
 - **`docker rm`**: Remove um ou mais contêineres.
-
-  ```bash
-  # Remove o contêiner com o ID especificado (deve estar parado)
-  docker rm <ID_DO_CONTÊINER>
-
-  # Força a remoção de um contêiner em execução
-  docker rm -f <ID_DO_CONTÊINER>
-  ```
+- **`docker rm -f`**: Remove um ou mais contêineres de forma forçada.
+- **`docker rmi`**: remove container e imagem.
 
 - **`docker logs`**: Exibe os logs de um contêiner.
-
-  ```bash
-  # Exibe os logs do contêiner 'meu-app' e continua mostrando novas saídas (-f)
-  docker logs -f meu-app
-  ```
+- **`docker logs -f`**: Exibe os logs de um contêiner e continua mostrando novas saídas (-f).
 
 - **`docker exec`**: Executa um comando dentro de um contêiner em execução.
   
-  ```bash
-  # Abre um shell interativo (-it) dentro do contêiner 'meu-app'
-  docker exec -it meu-app /bin/bash
-  ```
+```bash
+# Abre um shell interativo (-it) dentro do contêiner 'meu-app'
+docker exec -it meu-app /bin/bash
+```
 
 ## Gerenciamento de Redes
 
