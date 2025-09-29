@@ -180,5 +180,4 @@ docker start mysql
 # Se excluir um container, os dados serão perdidos
 docker rm mysql # Não exclui se estiver em execução
 docker rm -f mysql # Exclui mesmo que esteja em execução
-
 ```
